@@ -1,4 +1,6 @@
-use crate::util;
+use std::time::Instant;
+
+use crate::{Answer, util};
 use num_integer::Integer;
 
 const DAY: u32 = 1;
@@ -73,10 +75,16 @@ fn part2(input: &[i32]) -> usize {
     ans
 }
 
-pub fn solve() -> (String, String) {
+pub fn solve() -> Answer {
     let input = parse(None);
 
-    (part1(&input).to_string(), part2(&input).to_string())
+    let now = Instant::now();
+    let (p1, p2) = (part1(&input).to_string(), part2(&input).to_string());
+    Answer {
+        p1,
+        p2,
+        t: now.elapsed(),
+    }
 }
 
 #[cfg(test)]
