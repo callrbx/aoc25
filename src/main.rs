@@ -1,4 +1,5 @@
 #![feature(test)]
+#![feature(vec_peek_mut)]
 
 use std::time::Duration;
 
@@ -12,10 +13,12 @@ extern crate test;
 // mod day0;
 mod day1;
 mod day2;
+mod day3;
 mod util;
 
 fn main() {
-    let days: &[fn() -> Answer] = &[day1::solve, day2::solve];
+    let days: &[fn() -> Answer] = &[day1::solve, day2::solve, day3::solve];
+    // let days: &[fn() -> Answer] = &[day3::solve];
 
     let mut total = Duration::new(0, 0);
 
