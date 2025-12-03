@@ -1,14 +1,17 @@
 use std::time::Instant;
 
-use crate::{Answer, util};
+use crate::{
+    Answer,
+    util::{self, extract_day},
+};
 use num_integer::Integer;
 
-const DAY: u32 = 1;
-
 fn parse(input: Option<&str>) -> Vec<i32> {
+    let day = extract_day(file!());
+
     let puz_input = match input {
         Some(i) => i,
-        None => &util::get_input(DAY),
+        None => &util::get_input(day),
     };
 
     // day specific parsing follows
@@ -111,7 +114,8 @@ L82";
 
     #[bench]
     fn part1_bench(b: &mut Bencher) {
-        let input: Vec<i32> = parse(Some(&get_input(DAY)));
+        let day = extract_day(file!());
+        let input: Vec<i32> = parse(Some(&get_input(day)));
 
         assert_eq!(part1(&input), 1118);
 
@@ -135,7 +139,8 @@ L82";
 
     #[bench]
     fn part2_bench(b: &mut Bencher) {
-        let input: Vec<i32> = parse(Some(&get_input(DAY)));
+        let day = extract_day(file!());
+        let input: Vec<i32> = parse(Some(&get_input(day)));
 
         assert_eq!(part2(&input), 6289);
 

@@ -1,8 +1,9 @@
 use std::time::Instant;
 
-use crate::{Answer, util};
-
-const DAY: u32 = 2;
+use crate::{
+    Answer,
+    util::{self, extract_day},
+};
 
 #[derive(Debug)]
 struct ProdRange {
@@ -11,9 +12,11 @@ struct ProdRange {
 }
 
 fn parse(input: Option<&str>) -> Vec<ProdRange> {
+    let day = extract_day(file!());
+
     let puz_input = match input {
         Some(i) => i,
-        None => &util::get_input(DAY),
+        None => &util::get_input(day),
     };
 
     // day specific parsing follows
@@ -113,7 +116,8 @@ mod tests {
 
     #[bench]
     fn part1_bench(b: &mut Bencher) {
-        let input: Vec<ProdRange> = parse(Some(&get_input(DAY)));
+        let day = extract_day(file!());
+        let input: Vec<ProdRange> = parse(Some(&get_input(day)));
 
         assert_eq!(part1(&input), 54641809925);
 
@@ -129,7 +133,8 @@ mod tests {
 
     #[bench]
     fn part2_bench(b: &mut Bencher) {
-        let input: Vec<ProdRange> = parse(Some(&get_input(DAY)));
+        let day = extract_day(file!());
+        let input: Vec<ProdRange> = parse(Some(&get_input(day)));
 
         assert_eq!(part2(&input), 73694270688);
 
