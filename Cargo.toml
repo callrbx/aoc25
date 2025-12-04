@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 lazy_static = "1.5.0"
 num-integer = "0.1.46"
+pathfinding = "4.14.0"
 regex = "1.12.2"
 
 

@@ -14,11 +14,12 @@ extern crate test;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 mod util;
 
 fn main() {
-    let days: &[fn() -> Answer] = &[day1::solve, day2::solve, day3::solve];
-    // let days: &[fn() -> Answer] = &[day3::solve];
+    let days: &[fn() -> Answer] = &[day1::solve, day2::solve, day3::solve, day4::solve];
+    // let days: &[fn() -> Answer] = &[day4::solve];
 
     let mut total = Duration::new(0, 0);
 
